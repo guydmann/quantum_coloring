@@ -174,7 +174,10 @@ table.coloring td {
 </style>
 
 <div style="float:center">
-<p>Basis Table</p
+<table class="coloring_subsub"><tr><td>
+Basis Table
+<br>
+
 <table class="coloring">
 <?php
 	for ($i=0; $i<$basis_rows; $i++) {
@@ -200,10 +203,10 @@ table.coloring td {
 
 ?>
 </table>
-</div>
+</td><td>
+Line Table
+<br>
 
-<div style="float:center">
-<p>Line Table</p
 <table class="coloring">
 <?php
 	for ($i=0; $i<$line_rows; $i++) {
@@ -228,11 +231,11 @@ table.coloring td {
 
 ?>
 </table>
-</div>
+</td><td>
+Pentagon Table
+<br>
 
 
-<div style="">
-<p>Pentagon Table</p
 <table class="coloring">
 <?php
 	for ($i=0; $i<$pentagon_rows; $i++) {
@@ -257,6 +260,8 @@ table.coloring td {
 
 ?>
 </table>
+</td></tr>
+
 </div>
 
 
