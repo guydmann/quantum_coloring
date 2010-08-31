@@ -7,7 +7,8 @@ writeheader("Quantum Coloring","javascript, js, coding","A tool for coloring bla
 
 <body>
 
-<?php include("../../topbar.phtml"); ?><br>
+<?php include("../../topbar.phtml"); ?>
+<br>
 <?php include("coloring_app.php"); ?>
 
 </body>

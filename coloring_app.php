@@ -173,8 +173,9 @@ table.coloring td {
 	-moz-border-radius: 0px 0px 0px 0px;
 }
 </style>
-
-<div style="float:center">
+<script type="text/javascript" src="coloring_controls.js"></script>
+<script type="text/javascript" src="styley.js"></script>
+<div style="float:left">
 <table class="coloring_subsub"><tr><td>
 Basis Table
 <br>
@@ -211,20 +212,21 @@ Line Table
 <table class="coloring">
 <?php
 	for ($i=0; $i<$line_rows; $i++) {
-		echo "<tr>";
+		echo "<tr>\n";
 		for ($j=0; $j<$line_columns; $j++) {
-			echo "<td><table class='coloring_sub'>";
+			echo "<td>\n<table class='coloring_sub'>\n";
 			for ($k=0; $k<$line_row_height; $k++) {
-				echo "<tr>";
+				echo "<tr>\n";
 				for ($m=0; $m<$line_column_width; $m++) {
-					echo "<td>";
-						echo $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m];
-					echo "</td>";
+					echo "<td id='line_element_"  . (($i*$line_row_height)+$k) . "_" . (($j*$line_column_width)+$m) . "'";
+					echo " onclick='toggle_line(" . (($i*$line_row_height)+$k) . ", " . (($j*$line_column_width)+$m) . ")'>";
+					echo $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m];
+					echo "\n</td>\n";
 
 				}
-				echo "</tr>";
+				echo "</tr>\n";
 			}
-			echo "</table></td>";
+			echo "</table>\n</td>\n";
 
 		}
 		echo "</tr>";
@@ -262,14 +264,7 @@ Pentagon Table
 ?>
 </table>
 </td></tr>
-
+</table>
 </div>
 
 
-<div>
-<?php
-
-	echo "done";
-
-?>
-</div>
