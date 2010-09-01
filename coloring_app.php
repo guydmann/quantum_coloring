@@ -173,6 +173,48 @@ table.coloring td {
 	-moz-border-radius: 0px 0px 0px 0px;
 }
 </style>
+<script type="text/javascript" language="JavaScript">
+//need loops in php here to build the arrays
+//need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
+	var LineValueArray = new Array();
+	for (var i=0; i<<?php echo count($line); ?>; i++) {
+		LineValueArray[i] = new Array();
+		for (var j=0; j<<?php echo count($line[0]); ?>; j++) {
+			LineValueArray[i][j] = new Array();
+		}
+	}
+
+<?php
+	for ($i=0; $i<$line_rows; $i++) {
+//		echo "<tr>\n";
+		for ($j=0; $j<$line_columns; $j++) {
+//			echo "<td>\n<table class='coloring_sub'>\n";
+			for ($k=0; $k<$line_row_height; $k++) {
+//				echo "<tr>\n";
+				for ($m=0; $m<$line_column_width; $m++) {
+					echo "\t\tLineValueArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][0]=" . $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m] . ";\n";
+					echo "\t\tLineValueArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][1]=0;\n";
+					echo "\t\tLineValueArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][2]=" . $i  . ";\n";
+					echo "\t\tLineValueArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][3]=" . $j  . ";\n";
+
+//					echo "<td id='line_element_"  . (($i*$line_row_height)+$k) . "_" . (($j*$line_column_width)+$m) . "'";
+//					echo " onclick='toggle_line(" . (($i*$line_row_height)+$k) . ", " . (($j*$line_column_width)+$m) . ")'>";
+//					echo $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m];
+//					echo "\n</td>\n";
+				}
+//				echo "</tr>\n";
+			}
+//			echo "</table>\n</td>\n";
+		}
+//		echo "</tr>";
+	}
+
+?>
+
+//need an array that store the values in a cell
+</script>
+
+
 <script type="text/javascript" src="coloring_controls.js"></script>
 <script type="text/javascript" src="styley.js"></script>
 <div style="float:left">
