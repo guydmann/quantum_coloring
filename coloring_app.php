@@ -5,7 +5,6 @@
 	$basis_rows = 5;
 	$basis_row_height = 1;
 	$basis_row_display_height = 3;
-
 	$basis = array( array(1,2,3,4,31,42,51,16,22,60,39,28,57,23,27,40,44,29,15,52),
 		array(5,6,7,8,38,24,58,25,18,47,33,55,36,53,20,46,59,26,37,21),
 		array(9,10,11,12,56,45,17,35,13,32,50,41,43,49,30,14,34,19,48,54),
@@ -176,6 +175,46 @@ table.coloring td {
 <script type="text/javascript" language="JavaScript">
 //need loops in php here to build the arrays
 //need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
+	var BasisElementArray = new Array();
+	for (var i=0; i<<?php echo count($basis); ?>; i++) {
+		BasisElementArray[i] = new Array();
+		for (var j=0; j<<?php echo count($basis[0]); ?>; j++) {
+			BasisElementArray[i][j] = new Array();
+		}
+	}
+<?php
+	for ($i=0; $i<$basis_rows; $i++) {
+		for ($j=0; $j<$basis_columns; $j++) { // echo "<td>\n<table class='coloring_sub'>\n";
+			for ($k=0; $k<$basis_row_display_height; $k++) {
+				for ($m=0; $m<$basis_column_width; $m++) {
+					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][0]=" . $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m] . ";\n";
+					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][1]=0;\n";
+					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][2]=" . $i  . ";\n";
+					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][3]=" . $j  . ";\n";
+				}
+			}
+		}
+	}
+
+?>
+
+//need an array that store the values in a cell
+//a selection value[0] initialized to zero
+	var BasisCellRowHeight = <?php echo $basis_row_display_height; ?>;
+	var BasisCellColumnWidth = <?php echo $basis_column_width; ?>;
+	var BasisCellArray = new Array();
+	for (var i=0; i<<?php echo $basis_rows; ?>; i++) {
+		BasisCellArray[i] = new Array();
+		for (var j=0; j<<?php echo $basis_rows; ?>; j++) {
+			BasisCellArray[i][j] = new Array();
+			BasisCellArray[i][j][0]=0;
+		}
+	}
+
+
+
+//need loops in php here to build the arrays
+//need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
 	var LineElementArray = new Array();
 	for (var i=0; i<<?php echo count($line); ?>; i++) {
 		LineElementArray[i] = new Array();
@@ -276,10 +315,13 @@ Basis Table
 				echo "<tr>";
 				echo "<td><table class='coloring_subsub'><tr>";
 				for ($m=0; $m<$basis_column_width; $m++) {
-					echo "<td>";
-						echo $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m];
-					echo "</td>";
+//					echo "<td>";
+					echo "<td id='basis_element_"  . (($i*$basis_row_display_height)+$k) . "_" . (($j*$basis_column_width)+$m) . "'";
+					echo " onclick='toggle_basis(" . (($i*$basis_row_display_height)+$k) . ", " . (($j*$basis_column_width)+$m) . ")'>";
+					echo $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m];
+					echo "\n</td>\n";
 
+//					echo "</td>";
 				}
 				echo "</tr></table></td></tr>";
 			}
