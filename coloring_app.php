@@ -53,7 +53,7 @@
 		array(34,48,36,46,33,47,35,45,49,52,59,60,55,53,56,54,57,58,51,50),
 		array(26,49,27,52,28,51,25,50,6,5,2,4,9,12,11,10,3,1,7,8),
 		array(30,55,29,56,31,54,32,53,20,19,15,13,22,23,24,21,14,16,17,18),
-		array(33,59,35,57,34,60,36,58,45,46,41,44,40,39,37,38,42,43,47,45),
+		array(33,59,35,57,34,60,36,58,48,46,41,44,40,39,37,38,42,43,47,45),
 		array(39,52,38,49,37,50,40,51,1,4,11,12,7,5,8,6,9,10,3,2),
 		array(44,53,43,54,41,56,42,55,21,23,18,19,14,13,15,16,17,20,22,24),
 		array(46,60,48,58,45,59,47,57,27,26,34,33,32,30,31,29,36,35,25,28) );
@@ -212,6 +212,50 @@ table.coloring td {
 		}
 	}
 
+
+
+
+
+
+
+//need loops in php here to build the arrays
+//need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
+	var PentagonElementArray = new Array();
+	for (var i=0; i<<?php echo count($pentagon); ?>; i++) {
+		PentagonElementArray[i] = new Array();
+		for (var j=0; j<<?php echo count($pentagon[0]); ?>; j++) {
+			PentagonElementArray[i][j] = new Array();
+		}
+	}
+<?php
+	for ($i=0; $i<$pentagon_rows; $i++) {
+		for ($j=0; $j<$pentagon_columns; $j++) { 
+			for ($k=0; $k<$pentagon_row_height; $k++) {
+				for ($m=0; $m<$pentagon_column_width; $m++) {
+					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][0]=" . $pentagon[($i*$pentagon_row_height)+$k][($j*$pentagon_column_width)+$m] . ";\n";
+					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][1]=0;\n";
+					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][2]=" . $i  . ";\n";
+					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][3]=" . $j  . ";\n";
+				}
+			}
+		}
+	}
+
+?>
+
+//need an array that store the values in a cell
+//a selection value[0] initialized to zero
+	var PentagonCellRowHeight = <?php echo $pentagon_row_height; ?>;
+	var PentagonCellColumnWidth = <?php echo $pentagon_column_width; ?>;
+	var PentagonCellArray = new Array();
+	for (var i=0; i<<?php echo $pentagon_rows; ?>; i++) {
+		PentagonCellArray[i] = new Array();
+		for (var j=0; j<<?php echo $pentagon_rows; ?>; j++) {
+			PentagonCellArray[i][j] = new Array();
+			PentagonCellArray[i][j][0]=0;
+		}
+	}
+
 </script>
 
 
@@ -264,7 +308,6 @@ Line Table
 					echo " onclick='toggle_line(" . (($i*$line_row_height)+$k) . ", " . (($j*$line_column_width)+$m) . ")'>";
 					echo $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m];
 					echo "\n</td>\n";
-
 				}
 				echo "</tr>\n";
 			}
@@ -290,9 +333,13 @@ Pentagon Table
 			for ($k=0; $k<$pentagon_row_height; $k++) {
 				echo "<tr>";
 				for ($m=0; $m<$pentagon_column_width; $m++) {
-					echo "<td>";
-						echo $pentagon[($i*$pentagon_row_height)+$k][($j*$pentagon_column_width)+$m];
-					echo "</td>";
+//					echo "<td>";
+					echo "<td id='pentagon_element_"  . (($i*$pentagon_row_height)+$k) . "_" . (($j*$pentagon_column_width)+$m) . "'";
+					echo " onclick='toggle_pentagon(" . (($i*$pentagon_row_height)+$k) . ", " . (($j*$pentagon_column_width)+$m) . ")'>";
+					echo $pentagon[($i*$pentagon_row_height)+$k][($j*$pentagon_column_width)+$m];
+					echo "\n</td>\n";
+
+//					echo "</td>";
 
 				}
 				echo "</tr>";
