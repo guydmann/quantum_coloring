@@ -189,7 +189,7 @@ table.coloring td {
 				for ($m=0; $m<$basis_column_width; $m++) {
 					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][0]=" . $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m] . ";\n";
 					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][1]=0;\n";
-					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][2]=" . $i  . ";\n";
+					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][2]=" . (($i*$basis_row_display_height)+$k)  . ";\n";
 					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][3]=" . $j  . ";\n";
 				}
 			}
@@ -203,7 +203,7 @@ table.coloring td {
 	var BasisCellRowHeight = <?php echo $basis_row_display_height; ?>;
 	var BasisCellColumnWidth = <?php echo $basis_column_width; ?>;
 	var BasisCellArray = new Array();
-	for (var i=0; i<<?php echo $basis_rows; ?>; i++) {
+	for (var i=0; i<<?php echo $basis_rows*$basis_row_display_height; ?>; i++) {
 		BasisCellArray[i] = new Array();
 		for (var j=0; j<<?php echo $basis_rows; ?>; j++) {
 			BasisCellArray[i][j] = new Array();
@@ -245,7 +245,7 @@ table.coloring td {
 	var LineCellArray = new Array();
 	for (var i=0; i<<?php echo $line_rows; ?>; i++) {
 		LineCellArray[i] = new Array();
-		for (var j=0; j<<?php echo $line_rows; ?>; j++) {
+		for (var j=0; j<<?php echo $line_columns; ?>; j++) {
 			LineCellArray[i][j] = new Array();
 			LineCellArray[i][j][0]=0;
 		}
@@ -289,7 +289,7 @@ table.coloring td {
 	var PentagonCellArray = new Array();
 	for (var i=0; i<<?php echo $pentagon_rows; ?>; i++) {
 		PentagonCellArray[i] = new Array();
-		for (var j=0; j<<?php echo $pentagon_rows; ?>; j++) {
+		for (var j=0; j<<?php echo $pentagon_columns; ?>; j++) {
 			PentagonCellArray[i][j] = new Array();
 			PentagonCellArray[i][j][0]=0;
 		}
@@ -397,5 +397,4 @@ Pentagon Table
 </td></tr>
 </table>
 </div>
-
 
