@@ -9,6 +9,7 @@ function runExample() {
 	}
 	resetChartandValues();
 
+	//run example list
 	var example_array = document.getElementById('example').value.split(',');
 	for (var i = 0;i<example_array.length; i++) {
 		var cell_row = (example_array[i]-1)%15;
@@ -18,6 +19,38 @@ function runExample() {
 			toggle_basis(cell_row,BasisCellColumnWidth*cell_column);
 		}
 	}
+
+	//find any cells that contain no greens
+	//mark them red
+
+
+	//find any cells that are all green but not in list
+	//mark them blue
+        for (var p=0; p<BasisCellArray.length; p++) {
+	        for (var q=0; q<BasisCellArray[0].length ; q++) {
+			if (BasisCellArray[p][q][0] == 1) {
+				if (!inArray(p+(q*15)+1,example_array)) {
+					BasisCellArray[p][q][0] = 2;
+		       			for (var i=0; i<BasisCellRowHeight/3; i++) {
+        					for (var j=0; j<BasisCellColumnWidth; j++) {
+							if (BrowserDetect.browser=="Firefox") {
+								setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"color","blue");
+							} else {
+								setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"background-color","blue");
+							}
+							setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"font-weight","bold");
+							if (BrowserDetect.browser=="Firefox") {
+								setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"textDecoration","underline");
+							}
+							BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*cell_column)+j][1] = 2;
+							//findandmark_red_element(BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][0]);
+						}	
+					}
+				}
+			} 
+		}
+	}
+
 
 	GreyAndLock();
 	showNumCounts();
