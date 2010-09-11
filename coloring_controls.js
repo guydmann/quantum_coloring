@@ -501,10 +501,14 @@ function findandmark_grey_element(value) {
 
 function checkandmark_line_set_green(cell_row, cell_column) {
 	var filled = true;
+	var locked = false;
         for (var i=0; i<LineCellRowHeight; i++) {
         	for (var j=0; j<LineCellColumnWidth; j++) {
 			if (LineElementArray[((LineCellRowHeight*cell_row)+i)][((LineCellColumnWidth*cell_column)+j)][1]!=1) {
 				filled = false;	
+			}
+			if (LineElementArray[((LineCellRowHeight*cell_row)+i)][((LineCellColumnWidth*cell_column)+j)][1]==-1) {
+				locked = true;	
 			}
 		}
 	}
@@ -527,7 +531,9 @@ function checkandmark_line_set_green(cell_row, cell_column) {
 				}
 			}
 		}	
-		LineCellArray[cell_row][cell_column][0] = -2;
+		if (locked) {
+			LineCellArray[cell_row][cell_column][0] = -2;
+		}
 	}
 
 }
@@ -578,10 +584,14 @@ function checkandmark_line_unset(cell_row, cell_column) {
 
 function checkandmark_pentagon_set_green(cell_row, cell_column) {
 	var filled = true;
+	var locked = false;
         for (var i=0; i<PentagonCellRowHeight; i++) {
         	for (var j=0; j<PentagonCellColumnWidth; j++) {
 			if (PentagonElementArray[((PentagonCellRowHeight*cell_row)+i)][((PentagonCellColumnWidth*cell_column)+j)][1]!=1) {
 				filled = false;	
+			}
+			if (PentagonElementArray[((PentagonCellRowHeight*cell_row)+i)][((PentagonCellColumnWidth*cell_column)+j)][1]==-1) {
+				locked = true;	
 			}
 		}
 	}
@@ -604,7 +614,9 @@ function checkandmark_pentagon_set_green(cell_row, cell_column) {
 				}
 			}
 		}	
-		PentagonCellArray[cell_row][cell_column][0] = -2;
+		if (locked) {
+			PentagonCellArray[cell_row][cell_column][0] = -2;
+		}
 	}
 }
 function checkandmark_pentagon_set_red(cell_row, cell_column) {
@@ -652,10 +664,14 @@ function checkandmark_pentagon_unset(cell_row, cell_column) {
 
 function checkandmark_basis_set_green(cell_row, cell_column) {
 	var filled = true;
+	var locked = false;
         for (var i=0; i<BasisCellRowHeight/3; i++) {
         	for (var j=0; j<BasisCellColumnWidth; j++) {
 			if (BasisElementArray[((BasisCellRowHeight/3*cell_row)+i)][((BasisCellColumnWidth*cell_column)+j)][1]!=1) {
 				filled = false;	
+			}
+			if (BasisElementArray[((BasisCellRowHeight/3*cell_row)+i)][((BasisCellColumnWidth*cell_column)+j)][1]==-1) {
+				locked = true;	
 			}
 		}
 	}
@@ -678,7 +694,9 @@ function checkandmark_basis_set_green(cell_row, cell_column) {
 				}
 			}
 		}	
-		BasisCellArray[cell_row][cell_column][0] = -2;
+		if (locked) {
+			BasisCellArray[cell_row][cell_column][0] = -2;
+		}
 	}
 }
 
