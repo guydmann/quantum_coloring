@@ -295,6 +295,18 @@ table.coloring td {
 		}
 	}
 
+	var NumColoringArray = new Array();
+	for (var i=1; i<=60; i++) {
+		NumColoringArray[i] = new Array();
+		//green
+		NumColoringArray[i][1] = 0;
+		//red
+		NumColoringArray[i][-1] = 0;
+		//blue
+		NumColoringArray[i][2] = 0;
+	}
+
+
 </script>
 
 
@@ -302,8 +314,44 @@ table.coloring td {
 <script type="text/javascript" src="styley.js"></script>
 <div style="float:left">
 <input type='submit' id='Grey' onclick='GreyAndLock();' value='Toggle Grey and Lock'/>
+<select id='example'>
+	<option selected value=''>None</option>
+	<option value='1,3,4,8,11,19,23,26,28,29,31,33,36,38,42,49,53,57,61,63,66,67,71'>1</option>
+</select>
+<input type='submit' id='show_example' onclick='runExample();' value='Run Example'/>
 <input type='hidden' id='locked' value='0'/>
-<table class="coloring_subsub"><tr><td>
+<table class="coloring_subsub">
+	<tr>
+		<td colspan='3'>
+			<table class="coloring">
+			<?php
+				$green_field = "";
+				$red_field = "";
+				$blue_field = "";
+				echo "<tr>\n";
+				for ($i=1; $i<=60; $i++) {
+					echo "<td>" . $i . "</td>\n";
+					$green_field .= "<td><input  type='text' style='width:15px;border:0;padding:0' id='green_count" . $i . "'>" . "</td>\n";
+					$red_field .= "<td><input  type='text' style='width:15px;border:0;padding:0' id='red_count" . $i . "'>" . "</td>\n";
+					$blue_field .= "<td><input type='text' style='width:15px;border:0;padding:0' id='blue_count" . $i . "'>" . "</td>\n";
+				}
+				echo "</tr>\n";
+				echo "<tr>\n";
+				echo $green_field;
+				echo "</tr>\n";
+				echo "<tr>\n";
+				echo $red_field;
+				echo "</tr>\n";
+				echo "<tr>\n";
+				echo $blue_field;
+				echo "</tr>\n";
+
+			?>
+			</table>
+		</td>
+	</tr>
+<tr>
+<td>
 Basis Table
 &nbsp;&nbsp;
 &nbsp;&nbsp;
@@ -317,7 +365,6 @@ Basis Tool: <select id='basis_tool'>
 	<option value=1>Blue Tool</option>
 </select>
 <br>
-
 <table class="coloring">
 <?php
 	for ($i=0; $i<$basis_rows; $i++) {
