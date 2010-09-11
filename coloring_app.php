@@ -316,7 +316,15 @@ table.coloring td {
 <input type='submit' id='Grey' onclick='GreyAndLock();' value='Toggle Grey and Lock'/>
 <select id='example'>
 	<option selected value=''>None</option>
-	<option value='1,3,4,8,11,19,23,26,28,29,31,33,36,38,42,49,53,57,61,63,66,67,71'>1</option>
+	<option value='1,10,15,18,26,28,35,39,50,54,63,71,73'>26-13 BKS Parity Proof 1</option>
+	<option value='1,8,9,21,24,26,28,33,47,55,57,66,67,71,74'>30-15 BKS Parity Proof 1</option>
+	<option value='1,4,5,21,24,26,28,32,49,53,55,59,61,71,72'>30-15 BKS Parity Proof 2</option>
+	<option value='1,15,17,25,26,28,32,43,49,54,55,63,71,72,74'>30-15 BKS Parity Proof 3</option>
+	<option value='1,15,17,26,27,28,33,44,48,55,57,59,65,67,71'>30-15 BKS Parity Proof 4</option>
+	<option value='1,4,8,12,14,18,21,22,26,28,63,66,67,71,73'>30-15 BKS Parity Proof 5</option>
+	<option value='1,10,15,17,26,28,33,42,44,48,57,59,62,71,73'>30-15 BKS Parity Proof 6</option>
+
+	<option value='1,3,4,8,11,19,23,26,28,29,31,33,36,38,42,49,53,57,61,63,66,67,71'>Example 40-23</option>
 </select>
 <input type='submit' id='show_example' onclick='runExample();' value='Run Example'/>
 <input type='hidden' id='locked' value='0'/>

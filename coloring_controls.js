@@ -1,5 +1,5 @@
 function runExample() {
-	alert('examples don\'t work yet');
+	//alert('examples don\'t work yet');
 
 	if (document.getElementById('example').value=='') {
 		alert('select an example to proceed');
@@ -9,8 +9,10 @@ function runExample() {
 	for (var i = 0;i<example_array.length; i++) {
 		var cell_row = (example_array[i]-1)%15;
 		var cell_column = Math.floor((example_array[i]-1)/15);
-		alert(example_array[i] + ' ' + cell_row + ' ' + cell_column );
-		toggle_basis(cell_row,BasisCellColumnWidth*cell_column);
+		//alert(example_array[i] + ' ' + cell_row + ' ' + cell_column );
+		if (BasisCellArray[cell_row][cell_column][0] != 1) {
+			toggle_basis(cell_row,BasisCellColumnWidth*cell_column);
+		}
 	}
 
 }
