@@ -327,6 +327,13 @@ table.coloring td {
 	<option value='1,3,4,8,11,19,23,26,28,29,31,33,36,38,42,49,53,57,61,63,66,67,71'>Example 40-23</option>
 </select>
 <input type='submit' id='show_example' onclick='runExample();' value='Run Example'/>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+<input type='submit' id='reset' onclick='resetChartandValues();' value='Reset'/>
 <input type='hidden' id='locked' value='0'/>
 <table class="coloring_subsub">
 	<tr>
