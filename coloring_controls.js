@@ -55,7 +55,8 @@ function toggle_basis(row, column) {
 				findandmark_red_element(BasisElementArray[(BasisCellRowHeight/3*cell_row)+i][(BasisCellColumnWidth*cell_column)+j][0]);
 			}	
 		}
-	} else {
+	} else if (BasisCellArray[cell_row][cell_column][0] == -1) {
+//	} else {
 		//unset values
 		BasisCellArray[cell_row][cell_column][0] = 0;
         	for (var i=0; i<BasisCellRowHeight/3; i++) {
@@ -118,7 +119,8 @@ function toggle_line(row, column) {
 			}	
 		}
 
-	} else  {
+	} else if (LineCellArray[cell_row][cell_column][0] == -1) {
+//	} else  {
 		LineCellArray[cell_row][cell_column][0] = 0;
 	        for (var i=0; i<LineCellRowHeight; i++) {
         		for (var j=0; j<LineCellColumnWidth; j++) {
@@ -182,7 +184,8 @@ function toggle_pentagon(row, column) {
 			}	
 		}
 
-	} else {
+	} else 	if (PentagonCellArray[cell_row][cell_column][0] == -1) {
+//	} else {
 		PentagonCellArray[cell_row][cell_column][0] = 0;
 	        for (var i=0; i<PentagonCellRowHeight; i++) {
         		for (var j=0; j<PentagonCellColumnWidth; j++) {
@@ -623,7 +626,7 @@ function checkandmark_pentagon_set_red(cell_row, cell_column) {
 			}
 		}	
 		PentagonCellArray[cell_row][cell_column][0] = -1;
-	} else
+	} else {
 	        for (var i=0; i<PentagonCellRowHeight; i++) {
         		for (var j=0; j<PentagonCellColumnWidth; j++) {
 				setStyleById('pentagon_element_'+((PentagonCellRowHeight*cell_row)+i)+"_"+((PentagonCellColumnWidth*cell_column)+j),"font-weight","normal");
