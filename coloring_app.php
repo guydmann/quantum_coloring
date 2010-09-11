@@ -301,8 +301,21 @@ table.coloring td {
 <script type="text/javascript" src="coloring_controls.js"></script>
 <script type="text/javascript" src="styley.js"></script>
 <div style="float:left">
+<input type='submit' id='Grey' onclick='GreyAndLock' value='Grey Out and Lock'/>
+<input type='hidden' id='locked' value='false'/>
 <table class="coloring_subsub"><tr><td>
 Basis Table
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+Basis Tool: <select id='basis_tool'>
+	<option selected value=0>Regular Tool</option>
+	<option value=1>Blue Tool</option>
+</select>
 <br>
 
 <table class="coloring">
