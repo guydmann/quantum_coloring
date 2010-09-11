@@ -515,6 +515,16 @@ function checkandmark_line_set_green(cell_row, cell_column) {
 			}
 		}	
 		LineCellArray[cell_row][cell_column][0] = 1;
+	} else {
+	        for (var i=0; i<LineCellRowHeight; i++) {
+        		for (var j=0; j<LineCellColumnWidth; j++) {
+				setStyleById('line_element_'+((LineCellRowHeight*cell_row)+i)+"_"+((LineCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('line_element_'+((LineCellRowHeight*cell_row)+i)+"_"+((LineCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		LineCellArray[cell_row][cell_column][0] = -2;
 	}
 
 }
@@ -537,8 +547,18 @@ function checkandmark_line_set_red(cell_row, cell_column) {
 			}
 		}	
 		LineCellArray[cell_row][cell_column][0] = -1;
-	}
+	} else {
+	        for (var i=0; i<LineCellRowHeight; i++) {
+        		for (var j=0; j<LineCellColumnWidth; j++) {
+				setStyleById('line_element_'+((LineCellRowHeight*cell_row)+i)+"_"+((LineCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('line_element_'+((LineCellRowHeight*cell_row)+i)+"_"+((LineCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		LineCellArray[cell_row][cell_column][0] = -2;
 
+	}
 }
 
 function checkandmark_line_unset(cell_row, cell_column) {
@@ -572,8 +592,17 @@ function checkandmark_pentagon_set_green(cell_row, cell_column) {
 			}
 		}	
 		PentagonCellArray[cell_row][cell_column][0] = 1;
+	} else {
+	        for (var i=0; i<PentagonCellRowHeight; i++) {
+        		for (var j=0; j<PentagonCellColumnWidth; j++) {
+				setStyleById('pentagon_element_'+((PentagonCellRowHeight*cell_row)+i)+"_"+((PentagonCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('pentagon_element_'+((PentagonCellRowHeight*cell_row)+i)+"_"+((PentagonCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		PentagonCellArray[cell_row][cell_column][0] = -2;
 	}
-
 }
 function checkandmark_pentagon_set_red(cell_row, cell_column) {
 	var filled = true;
@@ -594,8 +623,17 @@ function checkandmark_pentagon_set_red(cell_row, cell_column) {
 			}
 		}	
 		PentagonCellArray[cell_row][cell_column][0] = -1;
+	} else
+	        for (var i=0; i<PentagonCellRowHeight; i++) {
+        		for (var j=0; j<PentagonCellColumnWidth; j++) {
+				setStyleById('pentagon_element_'+((PentagonCellRowHeight*cell_row)+i)+"_"+((PentagonCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('pentagon_element_'+((PentagonCellRowHeight*cell_row)+i)+"_"+((PentagonCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		PentagonCellArray[cell_row][cell_column][0] = -2;
 	}
-
 }
 
 function checkandmark_pentagon_unset(cell_row, cell_column) {
@@ -628,8 +666,17 @@ function checkandmark_basis_set_green(cell_row, cell_column) {
 			}
 		}	
 		BasisCellArray[cell_row][cell_column][0] = 1;
+	} else {
+	        for (var i=0; i<BasisCellRowHeight/3; i++) {
+        		for (var j=0; j<BasisCellColumnWidth; j++) {
+				setStyleById('basis_element_'+((BasisCellRowHeight/3*cell_row)+i)+"_"+((BasisCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('basis_element_'+((BasisCellRowHeight/3*cell_row)+i)+"_"+((BasisCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		BasisCellArray[cell_row][cell_column][0] = -2;
 	}
-
 }
 
 function checkandmark_basis_set_red(cell_row, cell_column) {
@@ -651,8 +698,17 @@ function checkandmark_basis_set_red(cell_row, cell_column) {
 			}
 		}	
 		BasisCellArray[cell_row][cell_column][0] = -1;
+	} else {
+	        for (var i=0; i<BasisCellRowHeight/3; i++) {
+        		for (var j=0; j<BasisCellColumnWidth; j++) {
+				setStyleById('basis_element_'+((BasisCellRowHeight/3*cell_row)+i)+"_"+((BasisCellColumnWidth*cell_column)+j),"font-weight","normal");
+				if (BrowserDetect.browser=="Firefox") {
+					setStyleById('basis_element_'+((BasisCellRowHeight/3*cell_row)+i)+"_"+((BasisCellColumnWidth*cell_column)+j),"textDecoration","none");
+				}
+			}
+		}	
+		BasisCellArray[cell_row][cell_column][0] = -2;
 	}
-
 }
 
 function checkandmark_basis_unset(cell_row, cell_column) {
