@@ -175,11 +175,12 @@ table.coloring td {
 <script type="text/javascript" language="JavaScript">
 //need loops in php here to build the arrays
 //need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
-	var BasisElementArray = new Array();
+	var TableElementArray = new Array();
+	TableElementArray[0] = new Array();
 	for (var i=0; i<<?php echo count($basis); ?>; i++) {
-		BasisElementArray[i] = new Array();
+		TableElementArray[0][i] = new Array();
 		for (var j=0; j<<?php echo count($basis[0]); ?>; j++) {
-			BasisElementArray[i][j] = new Array();
+			TableElementArray[0][i][j] = new Array();
 		}
 	}
 <?php
@@ -187,39 +188,38 @@ table.coloring td {
 		for ($j=0; $j<$basis_columns; $j++) { // echo "<td>\n<table class='coloring_sub'>\n";
 			for ($k=0; $k<$basis_row_display_height; $k++) {
 				for ($m=0; $m<$basis_column_width; $m++) {
-					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][0]=" . $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m] . ";\n";
-					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][1]=0;\n";
-					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][2]=" . (($i*$basis_row_display_height)+$k)  . ";\n";
-					echo "\tBasisElementArray[" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][3]=" . $j  . ";\n";
+					echo "\tTableElementArray[0][" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][0]=" . $basis[($i*$basis_row_display_height)+$k][($j*$basis_column_width)+$m] . ";\t";
+					echo "\tTableElementArray[0][" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][1]=0;\t";
+					echo "\tTableElementArray[0][" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][2]=" . (($i*$basis_row_display_height)+$k)  . ";\t";
+					echo "\tTableElementArray[0][" . (($i*$basis_row_display_height)+$k) . "][" . (($j*$basis_column_width)+$m) . "][3]=" . $j  . ";\n";
 				}
 			}
 		}
 	}
 
 ?>
-
 //need an array that store the values in a cell
 //a selection value[0] initialized to zero
-	var BasisCellRowHeight = <?php echo $basis_row_display_height; ?>;
-	var BasisCellColumnWidth = <?php echo $basis_column_width; ?>;
-	var BasisCellArray = new Array();
+	var TableCellRowHeight = new Array();
+	var TableCellColumnWidth = new Array();
+	TableCellRowHeight[0] = <?php echo $basis_row_height; ?>;
+	TableCellColumnWidth[0]= <?php echo $basis_column_width; ?>;
+	var TableCellArray = new Array();
+	TableCellArray[0] = new Array();
 	for (var i=0; i<<?php echo $basis_rows*$basis_row_display_height; ?>; i++) {
-		BasisCellArray[i] = new Array();
+		TableCellArray[0][i] = new Array();
 		for (var j=0; j<<?php echo $basis_rows; ?>; j++) {
-			BasisCellArray[i][j] = new Array();
-			BasisCellArray[i][j][0]=0;
+			TableCellArray[0][i][j] = new Array();
+			TableCellArray[0][i][j][0]=0;
 		}
 	}
-
-
-
 //need loops in php here to build the arrays
 //need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
-	var LineElementArray = new Array();
+	TableElementArray[1] = new Array();
 	for (var i=0; i<<?php echo count($line); ?>; i++) {
-		LineElementArray[i] = new Array();
+		TableElementArray[1][i] = new Array();
 		for (var j=0; j<<?php echo count($line[0]); ?>; j++) {
-			LineElementArray[i][j] = new Array();
+			TableElementArray[1][i][j] = new Array();
 		}
 	}
 <?php
@@ -227,43 +227,35 @@ table.coloring td {
 		for ($j=0; $j<$line_columns; $j++) { // echo "<td>\n<table class='coloring_sub'>\n";
 			for ($k=0; $k<$line_row_height; $k++) {
 				for ($m=0; $m<$line_column_width; $m++) {
-					echo "\tLineElementArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][0]=" . $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m] . ";\n";
-					echo "\tLineElementArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][1]=0;\n";
-					echo "\tLineElementArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][2]=" . $i  . ";\n";
-					echo "\tLineElementArray[" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][3]=" . $j  . ";\n";
+					echo "\tTableElementArray[1][" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][0]=" . $line[($i*$line_row_height)+$k][($j*$line_column_width)+$m] . ";\t";
+					echo "\tTableElementArray[1][" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][1]=0;\t";
+					echo "\tTableElementArray[1][" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][2]=" . $i  . ";\t";
+					echo "\tTableElementArray[1][" . (($i*$line_row_height)+$k) . "][" . (($j*$line_column_width)+$m) . "][3]=" . $j  . ";\t";
 				}
 			}
 		}
 	}
-
 ?>
-
 //need an array that store the values in a cell
 //a selection value[0] initialized to zero
-	var LineCellRowHeight = <?php echo $line_row_height; ?>;
-	var LineCellColumnWidth = <?php echo $line_column_width; ?>;
-	var LineCellArray = new Array();
+	TableCellRowHeight[1] = <?php echo $line_row_height; ?>;
+	TableCellColumnWidth[1] = <?php echo $line_column_width; ?>;
+	TableCellArray[1]= new Array();
 	for (var i=0; i<<?php echo $line_rows; ?>; i++) {
-		LineCellArray[i] = new Array();
+		TableCellArray[1][i] = new Array();
 		for (var j=0; j<<?php echo $line_columns; ?>; j++) {
-			LineCellArray[i][j] = new Array();
-			LineCellArray[i][j][0]=0;
+			TableCellArray[1][i][j] = new Array();
+			TableCellArray[1][i][j][0]=0;
+			TableCellArray[1][i][j][0]=0;
 		}
 	}
-
-
-
-
-
-
-
 //need loops in php here to build the arrays
 //need an array that stores the specific values[0], the cell index row[2], cell index column[3], and a selection value initialized to zero[1]
-	var PentagonElementArray = new Array();
+	TableElementArray[2] = new Array();
 	for (var i=0; i<<?php echo count($pentagon); ?>; i++) {
-		PentagonElementArray[i] = new Array();
+		TableElementArray[2][i] = new Array();
 		for (var j=0; j<<?php echo count($pentagon[0]); ?>; j++) {
-			PentagonElementArray[i][j] = new Array();
+			TableElementArray[2][i][j] = new Array();
 		}
 	}
 <?php
@@ -271,30 +263,28 @@ table.coloring td {
 		for ($j=0; $j<$pentagon_columns; $j++) { 
 			for ($k=0; $k<$pentagon_row_height; $k++) {
 				for ($m=0; $m<$pentagon_column_width; $m++) {
-					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][0]=" . $pentagon[($i*$pentagon_row_height)+$k][($j*$pentagon_column_width)+$m] . ";\n";
-					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][1]=0;\n";
-					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][2]=" . $i  . ";\n";
-					echo "\tPentagonElementArray[" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][3]=" . $j  . ";\n";
+					echo "\tTableElementArray[2][" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][0]=" . $pentagon[($i*$pentagon_row_height)+$k][($j*$pentagon_column_width)+$m] . ";\t";
+					echo "\tTableElementArray[2][" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][1]=0;\t";
+					echo "\tTableElementArray[2][" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][2]=" . $i  . ";\t";
+					echo "\tTableElementArray[2][" . (($i*$pentagon_row_height)+$k) . "][" . (($j*$pentagon_column_width)+$m) . "][3]=" . $j  . ";\n";
 				}
 			}
 		}
 	}
 
 ?>
-
 //need an array that store the values in a cell
 //a selection value[0] initialized to zero
-	var PentagonCellRowHeight = <?php echo $pentagon_row_height; ?>;
-	var PentagonCellColumnWidth = <?php echo $pentagon_column_width; ?>;
-	var PentagonCellArray = new Array();
+	TableCellRowHeight[2] = <?php echo $pentagon_row_height; ?>;
+	TableCellColumnWidth[2] = <?php echo $pentagon_column_width; ?>;
+	TableCellArray[2] = new Array();
 	for (var i=0; i<<?php echo $pentagon_rows; ?>; i++) {
-		PentagonCellArray[i] = new Array();
+		TableCellArray[2][i] = new Array();
 		for (var j=0; j<<?php echo $pentagon_columns; ?>; j++) {
-			PentagonCellArray[i][j] = new Array();
-			PentagonCellArray[i][j][0]=0;
+			TableCellArray[2][i][j] = new Array();
+			TableCellArray[2][i][j][0]=0;
 		}
 	}
-
 	var NumColoringArray = new Array();
 	for (var i=1; i<=60; i++) {
 		NumColoringArray[i] = new Array();
@@ -305,11 +295,7 @@ table.coloring td {
 		//blue
 		NumColoringArray[i][2] = 0;
 	}
-
-
 </script>
-
-
 <script type="text/javascript" src="coloring_controls.js"></script>
 <script type="text/javascript" src="styley.js"></script>
 <div style="float:left">
