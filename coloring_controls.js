@@ -22,6 +22,39 @@ function runExample() {
 
 	//find any cells that contain no greens
 	//mark them red
+        for (var p=0; p<BasisCellArray.length; p++) {
+	        for (var q=0; q<BasisCellArray[0].length ; q++) {
+			var has_green = true;
+			if (BasisCellArray[p][q][0] != 1) {
+				has_green = false;
+	       			for (var i=0; i<BasisCellRowHeight/3 && !has_green; i++) {
+      					for (var j=0; j<BasisCellColumnWidth && !has_green; j++) {
+						if (BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][1] ==  1) {
+							has_green = true;
+						}
+					}
+				}
+			} 
+			if (!has_green) {					
+				BasisCellArray[p][q][0] = -1;
+	       			for (var i=0; i<BasisCellRowHeight/3; i++) {
+       					for (var j=0; j<BasisCellColumnWidth; j++) {
+						if (BrowserDetect.browser=="Firefox") {
+							setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"color","red");
+						} else {
+							setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"background-color","red");
+						}
+						setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"font-weight","bold");
+						if (BrowserDetect.browser=="Firefox") {
+							setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"textDecoration","underline");
+						}
+						BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][1] = -1;
+						findandmark_red_element(BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][0]);
+					}	
+				}
+			} 
+		}
+	}
 
 
 	//find any cells that are all green but not in list
@@ -42,7 +75,7 @@ function runExample() {
 							if (BrowserDetect.browser=="Firefox") {
 								setStyleById('basis_element_'+((BasisCellRowHeight/3*p)+i)+"_"+((BasisCellColumnWidth*q)+j),"textDecoration","underline");
 							}
-							BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*cell_column)+j][1] = 2;
+							BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][1] = 2;
 							//findandmark_red_element(BasisElementArray[(BasisCellRowHeight/3*p)+i][(BasisCellColumnWidth*q)+j][0]);
 						}	
 					}
