@@ -323,6 +323,7 @@ table.coloring td {
 		ex_dd += "<option value='20'>50-25</option>";
 		ex_dd += "<option value='21'>53-27</option>";
 		ex_dd += "<option value='22'>54-27</option>";
+		ex_dd += "<option value='0'>------</option>";
 		ex_dd += "<option value='23'>40-23</option>";
 		ex_dd += "<option value='24'>41-23</option>";
 		ex_dd += "<option value='25'>42-23</option>";
