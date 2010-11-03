@@ -1750,9 +1750,10 @@ table.coloring td {
 			<li><a href="#" rel="controltab1" class="selected">Introduction</a></li>
 			<li><a href="#" rel="controltab2">Overview</a></li>
 			<li><a href="#" rel="controltab3">The 600-cell</a></li>
-			<li><a href="#" rel="controltab4">Using the Application</a></li>
-			<li><a href="#" rel="controltab5">Challenges</a></li>
-			<li><a href="#" rel="controltab6">Contacts</a></li>
+			<li><a href="#" rel="controltab4">Example Mode</a></li>
+			<li><a href="#" rel="controltab5">Puzzle Mode</a></li>
+			<li><a href="#" rel="controltab6">Challenges</a></li>
+			<li><a href="#" rel="controltab7">Contacts</a></li>
 		</ul>
 	</div>	
 	<div style="border:1px solid gray; margin-bottom: 1em; padding: 5px; background-color: black">
@@ -1778,14 +1779,8 @@ table.coloring td {
 			<p>A 44-27 proof has 34 rays that occur twice each and 10 rays that occur four times each.</p>
 			<p>Over a hundred R-B proofs are displayed in the Application. For any values of R and B that yield a proof, there could be anywhere from a few hundred to a hundred thousand different sets of bases that yield such a proof. The Application generally provides only one example of a proof for a given value of R and B (for which a proof exists!), though the cases before the dashed line in the list have been exhaustively searched and all geometrically unique proofs within them identified.  For these cases, an example of each geometrically distinct type of proof is given.  We estimate that the total number of distinct R-B proofs (i.e. ones involving distinct bases) within the 600-cell is somewhere in the neighborhood of 100 million.</p>
 		</div>
-		<div name="Using the Application"  id="controltab4" class="tabcontent">
-			<p>The Application that displays the BKS proofs was designed by Guy D.Mann and Mordecai Waegell on the basis of the results reported in [1]. The display area in the Application contains three tables:</p>
-			<p>A Basis Table - this shows the 75 bases formed by the 60 rays of the 600-cell. </p>
-			<p>A Line Table - this shows 100 groups of six rays each, arranged as a 10 x 10 array. </p>
-			<p>A Pentagon Table - this shows 36 groups of ten rays each, arranged as a 6 x 6 array. </p>
-			<p>Only the basis table is directly relevant to the BKS proofs. The line and pentagon tables can be ignored for the most part (but are useful if one wish to construct the proofs using the prescriptions in [1]). </p>
-			<p>There are two modes in which the Application can be used - the Example mode and the Puzzle mode. </p>
-			<p><u>Example Mode</u> :  The user selects from the drop-down menus under the "Run Example" button to pick a R-B proof. The Application then returns such a proof, with all the bases making up the proof colored in green. The user can check that each of the rays occurring in the green bases occurs either twice or four times in them. </p>
+		<div name="Example Mode"  id="controltab4" class="tabcontent">
+			<p>The user selects from the drop-down menus under the "Run Example" button to pick a R-B proof. The Application then returns such a proof, with all the bases making up the proof colored in green. The user can check that each of the rays occurring in the green bases occurs either twice or four times in them. </p>
 			<p>It's even quicker to look at the first row of the table at the top of the Application, which shows the counts of all the rays occurring in the green bases; from the fact that the counts are only 0,2 and 4 one can verify that one has a proof.  </p>
 			<p>The bases colored red or blue, if any, can generally be ignored. But read on if you are curious. </p>
 			<p>The blue bases involve only rays that occur in the green bases. However these additional bases are not needed for the BKS proof and so they are set off in a different color. The red bases involve only rays that never occur in the green bases. These bases are not needed for the BKS proof either, and so are set off in a different color. The reason we bother to single out these bases is that there are certain cases in which they also provide BKS proofs (in addition to the one provided by the green bases). You will be shown some examples of such situations in Sec.4 below.  </p>
@@ -1793,15 +1788,17 @@ table.coloring td {
 			<p>Here are two useful tips when you use the Application:</p>
 			<p>1. You can use the "Toggle Grey and Lock" button to pass back and forth between the (green) bases involved in the BKS proof (plus any blue and red bases) and all 75 bases; when all 75 bases are shown, the extraneous bases that appear consist of mixtures of green rays (that play a role in the proof) and grey rays (that do not). To keep things simple, look at just the green bases and you will see the BKS proof.</p>
 			<p>2. If you get tired of counting the rays in a proof, just look at the three long horizontal rows at the top of the Application, just below the row containing the numbers from 1 to 60. The first, second and third of these rows give the counts of the rays in the green, red and blue bases, respectively. You can use these counts to check if any of the green, red or blue bases give a BKS proof.</p>
-			<p><u>Puzzle Mode (under construction)</u>: The user can play a one- or two-person game in which the object is to construct one of the R-B sets. In the solitaire version of the game, the user picks a value of B and then chooses bases one after the other in an attempt to create an R-B set with that value of B (or perhaps one smaller than it). In the two-person version of the game, two people pick bases alternately. The game could end in a win for one player or a stalemate. Of course, restrictions would have to be imposed to make the game interesting. For example, picking a new basis that makes some ray appear five times among the chosen bases could be forbidden, as that would allow a stalemate to be forced.</p>
 		</div>
-		<div name="Challenges"  id="controltab5" class="tabcontent">
+		<div name="Puzzle Mode"  id="controltab5" class="tabcontent">
+			<p>The user can play a one- or two-person game in which the object is to construct one of the R-B sets. In the solitaire version of the game, the user picks a value of B and then chooses bases one after the other in an attempt to create an R-B set with that value of B (or perhaps one smaller than it). In the two-person version of the game, two people pick bases alternately. The game could end in a win for one player or a stalemate. Of course, restrictions would have to be imposed to make the game interesting. For example, picking a new basis that makes some ray appear five times among the chosen bases could be forbidden, as that would allow a stalemate to be forced.</p>
+		</div>
+		<div name="Challenges"  id="controltab6" class="tabcontent">
 			<p>If you go to the drop down menu in the Application and choose the 30-15 proof, you will find that you can choose from among six options. If you choose option 5, you will find that you are presented with two BKS proofs, with all the bases in one colored green all those in the other colored red. These two proofs are complementary to each other in the sense that the rays in one have no overlap with those of the other (and with their union therefore yielding all 60 rays). It turns out that there are exactly 120 such complementary pairs of proofs. Can you find the other 119? A simple prescription for generating all the members of this family is given in [1]. It involves using the entries in the pentagon table, that you were told to ignore earlier.</p>
 			<p>As another challenge, use the drop down menu to call up the 54-27 proof. You will actually see two 54-27 proofs displayed together, with the bases of one colored green and those of the other colored blue. Both proofs involve the same set of 54 rays, but they have no bases in common. The same 54 bases can be split up in 368 different ways into pairs of 54-27 proofs. Can you generate the other possibilities? There are a 100 ways of picking a 54-54 set that can be split (in 368 ways) into pairs of 54-27 proofs. Can you see how to get them? The answer is very simple if you use the line table, that you were told to ignore earlier. This answer is also spelt out in [1].</p>
 			<p>The 50-25 proof is very similar to the 54-27 proof, in that it can be obtained by starting with a 50-50 set and splitting it apart (in 291 ways) into pairs of 50-25 sets. Again, the use of the line and pentagon tables facilitates the construction. </p>
 			<p>As with the rest of the internet construction is ongoing. We welcome any comments, suggestions, corrections, feedback etc. </p>
 		</div>
-		<div name="Contacts"  id="controltab6" class="tabcontent">
+		<div name="Contacts"  id="controltab7" class="tabcontent">
 			<p>Please email your comments to one of the following individuals:</p>
 			<p>P.K.Aravind, Physics Department, WPI  (paravind@wpi.edu)</p>
 			<p>Mordecai Waegell, Physics Department, WPI (caiw@wpi.edu)</p>
