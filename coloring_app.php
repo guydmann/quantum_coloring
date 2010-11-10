@@ -1435,7 +1435,7 @@ table.coloring td {
 				ex_dd += "<option value='1,4,7,12,18,20,22,25,26,27,31,34,37,38,39,42,48,50,52,57,67,69,71,72,75'>8</option>";
 				ex_dd += "<option value='1,4,7,8,12,16,17,24,26,27,30,31,35,42,46,47,49,50,52,59,61,65,71,73,75'>9</option>";
 				ex_dd += "<option value='1,2,5,10,12,13,21,26,27,28,33,34,35,39,40,43,44,47,53,55,61,64,65,69,71'>10</option>";
-				ex_dd += "<option value='1,3,8,11,13,14,22,26,28,30,33,35,43,46,47,48,49,55,56,58,63,66,70,71,75'>1</option>";
+				ex_dd += "<option value='1,3,8,11,13,14,22,26,28,30,33,35,43,46,47,48,49,55,56,58,63,66,70,71,75'>11</option>";
 				ex_dd += "<option value='1,2,3,6,8,17,20,24,25,26,31,33,34,36,40,44,46,48,55,60,61,65,67,70,71'>12</option>";
 				ex_dd += "<option value='1,2,3,7,13,17,24,26,27,30,31,33,34,40,44,45,46,48,51,55,61,67,71,72,75'>13</option>";
 				ex_dd += "<option value='1,4,8,13,14,16,20,22,25,26,28,30,42,44,46,50,53,55,56,62,63,67,69,71,75'>14</option>";
@@ -1759,10 +1759,11 @@ table.coloring td {
 	<div style="border:1px solid gray; margin-bottom: 1em; padding: 5px; background-color: black">
 		<form name="sampleForm" style="margin: 0px; padding: 0px;"> 
 		<div name="Introduction"  id="controltab1" class="tabcontent">
-			<p>WELCOME to the BKS Coloring Application</p>
+			<p>Welcome to the BKS Coloring Application</p>
+			<p>This is a demo for the concepts presented in <a style="color:red" href="http://arxiv.org/abs/1010.4353">Parity proofs of the Bell-Kochen-Specker theorem based on the 600-cell</a>.</p>
 		</div>
 		<div name="Overview"  id="controltab2" class="tabcontent">
-			<p>The 600-cell is a regular figure in four dimensions with 120 vertices distributed symmetrically on the surface of a sphere. It was discovered, along with the five other regular polytopes in four dimensions, by the Swiss mathematician L.Schlafli in the middle of the 19th century. It gets its name from the fact that its boundary consists of 600 interlocking tetrahedra, five of which surround each edge and twenty of which meet at each vertex of the figure.  For more information about the geometric properties of the 600-cell, consult http://en.wikipedia.org/wiki/600-cell, http://mathworld.wolfram.com/600-Cell.html, or visit David Richter's page at http://homepages.wmich.edu/~drichter/600cells.htm  </p>
+			<p>The 600-cell is a regular figure in four dimensions with 120 vertices distributed symmetrically on the surface of a sphere. It was discovered, along with the five other regular polytopes in four dimensions, by the Swiss mathematician L.Schlafli in the middle of the 19th century. It gets its name from the fact that its boundary consists of 600 interlocking tetrahedra, five of which surround each edge and twenty of which meet at each vertex of the figure.  For more information about the geometric properties of the 600-cell, consult <a style="color:red" href="http://en.wikipedia.org/wiki/600-cell">Wikipedia</a>, <a style="color:red" href="http://mathworld.wolfram.com/600-Cell.html">Wolfram</a>, or visit <a style="color:red" href="http://homepages.wmich.edu/~drichter/600cells.htm">David Richter's page</a>.</p>
 			<p>During the years 1966-67 J.S.Bell and, independently, S.Kochen and E.P.Specker proved a fundamental theorem bearing on the interpretation of quantum mechanics. Their theorem, which we will refer to as the BKS theorem, rules out the existence of a particular class of deterministic alternatives to quantum mechanics (known technically as "non-contextual hidden variables theories"). The BKS theorem should not be confused with a later result due to Bell, known simply as Bell's theorem, that rules out the existence of "local hidden variables theories". In more familiar terms, these theorems prove that a complete description of reality that simultaneously conforms to Einstein's notions of relativistic causality and classical determinism cannot be given; either some events are truly random (i.e. fundamentally impossible to predict) or there must be some influences that propagate faster than the speed of light (seemingly with infinite speed).</p>
 			<p>The BKS and Bell theorems have both been proved in many different ways over the years and, in fact,   are closely related: it turns out that any proof of the BKS theorem can be turned into a proof of Bell's theorem if use is made of the right sort of "entanglement" (an intriguing feature of the microscopic quantum world that has no macroscopic analog). The close relationship between the two theorems may partly help explain the enduring interest in the BKS theorem among those who study foundational issues in quantum mechanics.</p>
 			<p>The purpose of this website is to present a new class of proofs of the BKS theorem based on the geometry of the 600-cell. This is done in the form of a web application that presents the proofs in a visual form. Each proof consists of a pattern of numbers that obeys a pair of easily stated rules. By verifying that the rules are obeyed in each case, with no more than simple counting, the user can check that the proofs are indeed valid. Exactly why these patterns of numbers prove the BKS theorem will not be explained here. Users wanting an explanation of this point can consult [1], where a detailed account is also given of how the many proofs presented here were extracted from the 600-cell.</p>
@@ -1790,7 +1791,50 @@ table.coloring td {
 			<p>2. If you get tired of counting the rays in a proof, just look at the three long horizontal rows at the top of the Application, just below the row containing the numbers from 1 to 60. The first, second and third of these rows give the counts of the rays in the green, red and blue bases, respectively. You can use these counts to check if any of the green, red or blue bases give a BKS proof.</p>
 		</div>
 		<div name="Puzzle Mode"  id="controltab5" class="tabcontent">
-			<p>The user can play a one- or two-person game in which the object is to construct one of the R-B sets. In the solitaire version of the game, the user picks a value of B and then chooses bases one after the other in an attempt to create an R-B set with that value of B (or perhaps one smaller than it). In the two-person version of the game, two people pick bases alternately. The game could end in a win for one player or a stalemate. Of course, restrictions would have to be imposed to make the game interesting. For example, picking a new basis that makes some ray appear five times among the chosen bases could be forbidden, as that would allow a stalemate to be forced.</p>
+			<p>The basic features of this mode allow one to select subsets of rays from within the 600-
+				cell using the Geometric Tiling Tables below in an attempt to build a parity proof of the
+				BKS theorem. There are many unique critical parity proofs of the BKS theorem which 
+				can be obtained using this application. Here is how it works:</p>
+			<b>Ray Selection</b>
+			<ul>
+				<li>Initially, there are no rays selected.</li>
+				<li>Clicking on any basis, or any block in the Line or Pentagon Table selects all of
+					the rays it contains. Selected rays become highlighted in green everywhere they
+					appear in the tables.</li>
+				<li>Selected rays can also be ‘canceled’ from the selected set. Any block that
+					contains only green rays can be clicked to cancel all of the rays it contains. This
+					corresponds to canceling whole bases, dual-line-pairs, or dual-pentagon-pairs.
+					The canceled rays will be highlighted in red everywhere they appear in the tables.</li>
+				<li>Clicking a Basis or Block with only canceled rays returns those rays to the
+					unselected condition.</li>
+				<li>Bases and Blocks which contain a mix of selected and unselected rays can be
+					clicked to select all remaining rays.</li>
+				<li>Bases and Blocks containing a mix of selected and canceled rays cannot be
+					directly selected, and clicking on these blocks does nothing.</li>
+			</ul>
+			<b>Basis Selection:</b>
+			<ul>
+				<li>Once all desired rays have been selected and/or canceled, it may be necessary to
+					remove extraneous bases from the set of fully selected bases (those in which all
+					rays are highlighted in green). By selecting the ‘Blue Tool’ one can cancel and
+					uncancel bases from the Basis Table (highlighting them in blue) without affecting
+					the selection status of those rays elsewhere.</li>
+				<li>Once a basis is canceled in blue, all rays contained in that basis become locked
+					everywhere and their ray-selection status cannot be changed until that basis is
+					uncanceled. This lock supersedes the other ray selection rules.</li>
+				<li>In building a parity proof, the goal is to have an odd number of fully selected
+					bases, such that each selected ray appears in an even number of those bases. The
+					count of how many fully selected bases each ray appears in is shown, and can be
+					used to choose and cancel bases.</li>
+			</ul>
+			<b>Grey and Lock:</b>
+			<ul>
+				<li>The ‘Toggle Grey and Lock’ button can be used to clean up the table display and
+					make geometric patterns present there stand out more strikingly. Any Basis or
+					Block that is not fully selected is completely greyed out, and all ray and basis
+					selection is locked. Clicking the button again undoes this.</li>
+			</ul>
+
 		</div>
 		<div name="Challenges"  id="controltab6" class="tabcontent">
 			<p>If you go to the drop down menu in the Application and choose the 30-15 proof, you will find that you can choose from among six options. If you choose option 5, you will find that you are presented with two BKS proofs, with all the bases in one colored green all those in the other colored red. These two proofs are complementary to each other in the sense that the rays in one have no overlap with those of the other (and with their union therefore yielding all 60 rays). It turns out that there are exactly 120 such complementary pairs of proofs. Can you find the other 119? A simple prescription for generating all the members of this family is given in [1]. It involves using the entries in the pentagon table, that you were told to ignore earlier.</p>
@@ -1813,12 +1857,13 @@ table.coloring td {
 		controls.init()
 </script>
 
-
 <input type='submit' id='show_example' onclick='runExample();' value='Run Example'/>
-<p id='example_area'></p>
-
-
-
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
 <input type='submit' id='Grey' onclick='GreyAndLock();' value='Toggle Grey and Lock'/>
 &nbsp;&nbsp;
 &nbsp;&nbsp;
@@ -1827,7 +1872,8 @@ table.coloring td {
 &nbsp;&nbsp;
 &nbsp;&nbsp;
 <input type='submit' id='reset' onclick='resetChartandValues();' value='Reset'/>
-<input type='hidden' id='locked' value='0'/>
+<input type='hidden' id='locked' value='0'/><br>
+<p id='example_area'></p>
 
 <div style="float:left">
 <!--
